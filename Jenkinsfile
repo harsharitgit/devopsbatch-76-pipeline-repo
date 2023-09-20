@@ -14,34 +14,34 @@ pipeline {
     }
 
     stage('build') {
-      steps {
-        echo 'I had to build on CI/CD'
-      }
-    }
-
-    stage('test') {
       parallel {
+        stage('build') {
+          steps {
+            echo 'I had to build on CI/CD'
+          }
+        }
+
         stage('test') {
           steps {
-            echo 'I had a test to work on CI/CD'
+            echo 'working on test ci/cd'
           }
         }
 
         stage('release') {
           steps {
-            echo 'I had to release the work of CI/CD'
+            echo 'working on release ci/cd'
           }
         }
 
         stage('deploy') {
           steps {
-            echo 'i had deployed ci/cd'
+            echo 'working on deployment ci/cd'
           }
         }
 
         stage('operate') {
           steps {
-            echo 'operate /cicd'
+            echo 'working on operate ci/cd'
           }
         }
 
